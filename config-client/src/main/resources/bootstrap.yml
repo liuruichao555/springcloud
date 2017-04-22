@@ -1,0 +1,2 @@
+### bootstrap的优先级高
+spring.cloud.config.uri: http://localhost:8080
