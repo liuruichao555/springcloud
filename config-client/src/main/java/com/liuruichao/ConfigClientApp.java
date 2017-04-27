@@ -19,15 +19,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("")
 public class ConfigClientApp {
-    /*@Value("${redis.host}")
-    private String redisHost;*/
+    @Value("${redis.host}")
+    private String redisHost;
 
-    @Value("${bar}")
-    private String bar;
+    /*@Value("${bar}")
+    private String bar;*/
 
     @RequestMapping(method = RequestMethod.GET)
     public String hello() {
-        return bar;
+        return redisHost;
     }
 
     public static void main(String[] args) {

@@ -1,5 +1,8 @@
 server.port: 8888
-spring.application.name: foo
+spring.application.name: myapp
 spring.cloud.config:
   label: master
-  profile: development
+  profile: default
+  #profile: dev
+  #profile: test
+  #profile: pro
