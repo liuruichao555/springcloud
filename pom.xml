@@ -9,8 +9,13 @@
     <packaging>pom</packaging>
     <version>1.0</version>
     <modules>
+        <!-- spring cloud config -->
         <module>config-server</module>
         <module>config-client</module>
+        <!-- spring cloud eureka -->
+        <module>eureka-server</module>
+        <module>eureka-provider</module>
+        <module>eureka-consumer</module>
     </modules>
 
     <parent>
@@ -30,17 +35,6 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-config</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka</artifactId>
-        </dependency>
-    </dependencies>
 
     <build>
         <plugins>
