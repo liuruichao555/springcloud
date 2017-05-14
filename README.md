@@ -3,3 +3,4 @@
     2. spring cloud config client: 获取集中管理配置。
     3. spring cloud euraka: 服务注册。
     4. spring cloud provider: 服务提供者。
+    5. spring cloud consumer: 服务消费者。
