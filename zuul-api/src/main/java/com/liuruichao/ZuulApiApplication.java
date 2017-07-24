@@ -2,8 +2,7 @@ package com.liuruichao;
 
 import com.liuruichao.filter.AccessFilter;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.client.SpringCloudApplication;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.context.annotation.Bean;
 
@@ -14,8 +13,7 @@ import org.springframework.context.annotation.Bean;
  * Created on 2017/7/24 14:30
  */
 @EnableZuulProxy
-@EnableEurekaClient
-@SpringBootApplication
+@SpringCloudApplication
 public class ZuulApiApplication {
     public static void main(String[] args) {
         SpringApplication.run(ZuulApiApplication.class, args);
