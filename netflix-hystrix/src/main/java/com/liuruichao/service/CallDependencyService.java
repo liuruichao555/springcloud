@@ -26,6 +26,7 @@ public class CallDependencyService {
     }
 
     public String fallback() {
+        // 默认返回值
         return "default hello";
     }
 }
