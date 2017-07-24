@@ -17,6 +17,7 @@
         <module>eureka-provider</module>
         <module>eureka-consumer</module>
         <module>zuul-api</module>
+        <module>netflix-hystrix</module>
     </modules>
 
     <parent>
