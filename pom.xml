@@ -18,6 +18,7 @@
         <module>eureka-consumer</module>
         <module>zuul-api</module>
         <module>netflix-hystrix</module>
+        <module>boot-test</module>
     </modules>
 
     <parent>
