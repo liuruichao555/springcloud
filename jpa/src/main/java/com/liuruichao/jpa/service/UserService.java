@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.transaction.Transactional;
+import java.util.List;
 
 /**
  * UserService
@@ -22,5 +23,13 @@ public class UserService {
     public Integer addUser(User user) {
         user = userRepository.save(user);
         return user.getId();
+    }
+
+    public List<User> getUserByName(String name) {
+        return userRepository.findByName(name);
+    }
+
+    public List<User> getUserByAge(Integer age) {
+        return userRepository.findByAge(age);
     }
 }

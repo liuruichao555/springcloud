@@ -2,11 +2,12 @@ package com.liuruichao.jpa.controller;
 
 import com.liuruichao.jpa.model.User;
 import com.liuruichao.jpa.service.UserService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * UserController
@@ -16,6 +17,7 @@ import javax.annotation.Resource;
  */
 @RestController
 @RequestMapping("/user")
+@Slf4j
 public class UserController {
     @Resource
     private UserService userService;
@@ -23,5 +25,21 @@ public class UserController {
     @PostMapping
     public Integer add(User user) {
         return userService.addUser(user);
+    }
+
+    @GetMapping("/name/{name}")
+    public List<User> queryByName(@PathVariable String name) {
+        if (StringUtils.isEmpty(name)) {
+            return null;
+        }
+        return userService.getUserByName(name);
+    }
+
+    @GetMapping("/age/{age}")
+    public List<User> queryByAge(@PathVariable Integer age) {
+        if (age == null || age <= 0) {
+            return null;
+        }
+        return userService.getUserByAge(age);
     }
 }
