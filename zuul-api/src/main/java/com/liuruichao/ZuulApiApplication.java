@@ -1,6 +1,9 @@
 package com.liuruichao;
 
 import com.liuruichao.filter.AccessFilter;
+import com.liuruichao.filter.ErrorFilter;
+import com.liuruichao.filter.PostFilter;
+import com.liuruichao.filter.RouteFilter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.cloud.client.SpringCloudApplication;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
@@ -22,5 +25,20 @@ public class ZuulApiApplication {
     @Bean
     public AccessFilter accessFilter() {
         return new AccessFilter();
+    }
+
+    @Bean
+    public RouteFilter routeFilter() {
+        return new RouteFilter();
+    }
+
+    @Bean
+    public PostFilter postFilter() {
+        return new PostFilter();
+    }
+
+    @Bean
+    public ErrorFilter errorFilter() {
+        return new ErrorFilter();
     }
 }

@@ -19,6 +19,7 @@
         <module>zuul-api</module>
         <module>netflix-hystrix</module>
         <module>boot-test</module>
+        <module>boot2-test</module>
     </modules>
 
     <parent>
