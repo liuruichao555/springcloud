@@ -2,9 +2,15 @@ package com.liuruichao.jpa.service;
 
 import com.liuruichao.jpa.model.User;
 import com.liuruichao.jpa.repository.UserRepository;
+import org.springframework.data.jpa.domain.Specification;
+import org.springframework.data.jpa.domain.Specifications;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -25,11 +31,18 @@ public class UserService {
         return user.getId();
     }
 
-    public List<User> getUserByName(String name) {
+    public List<User> getUser(String name) {
         return userRepository.findByName(name);
     }
 
-    public List<User> getUserByAge(Integer age) {
+    public List<User> getUser(Integer age) {
         return userRepository.findByAge(age);
+    }
+
+    public List<User> getUser(String name, Integer age) {
+        Specifications<User> specifications = Specifications
+                .where((Specification<User>) (root, criteriaQuery, criteriaBuilder) -> criteriaBuilder.equal(root.get("name").as(String.class), name))
+                .and((root, criteriaQuery, criteriaBuilder) -> criteriaBuilder.equal(root.get("age").as(Integer.class), age));
+        return userRepository.findAll(specifications);
     }
 }

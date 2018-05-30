@@ -23,23 +23,28 @@ public class UserController {
     private UserService userService;
 
     @PostMapping
-    public Integer add(User user) {
+    public Integer addUser(User user) {
         return userService.addUser(user);
     }
 
     @GetMapping("/name/{name}")
-    public List<User> queryByName(@PathVariable String name) {
+    public List<User> getUser(@PathVariable String name) {
         if (StringUtils.isEmpty(name)) {
             return null;
         }
-        return userService.getUserByName(name);
+        return userService.getUser(name);
     }
 
     @GetMapping("/age/{age}")
-    public List<User> queryByAge(@PathVariable Integer age) {
+    public List<User> getUser(@PathVariable Integer age) {
         if (age == null || age <= 0) {
             return null;
         }
-        return userService.getUserByAge(age);
+        return userService.getUser(age);
+    }
+
+    @GetMapping
+    public List<User> getUser(@RequestParam String name, @RequestParam Integer age) {
+        return userService.getUser(name, age);
     }
 }
