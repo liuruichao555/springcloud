@@ -27,6 +27,12 @@ public class UserController {
         return userService.addUser(user);
     }
 
+    @GetMapping("/test")
+    public List<User> test() {
+        return userService.test();
+    }
+
+
     @GetMapping("/name/{name}")
     public List<User> getUser(@PathVariable String name) {
         if (StringUtils.isEmpty(name)) {

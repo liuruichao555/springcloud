@@ -46,4 +46,17 @@ public class UserService {
         //User user = userRepository.findOne(specifications);
         return userRepository.findAll(specifications);
     }
+
+    public List<User> test() {
+        Integer id = 1;
+        String name = "liuruichao";
+        Integer age = 20;
+        Specifications<User> specifications = Specifications
+                .where((Specification<User>) (root, criteriaQuery, criteriaBuilder) -> criteriaBuilder.equal(root.get("name").as(String.class), name))
+                .and(
+                        Specifications.where((Specification<User>) (root, criteriaQuery, criteriaBuilder) -> criteriaBuilder.equal(root.get("id").as(Integer.class), id))
+                        .or((root, criteriaQuery, criteriaBuilder) -> criteriaBuilder.equal(root.get("age").as(Integer.class), age))
+                );
+        return userRepository.findAll(specifications);
+    }
 }
