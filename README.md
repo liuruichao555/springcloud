@@ -4,3 +4,5 @@
     3. spring cloud euraka: 服务注册中心。
     4. spring cloud provider: 服务提供者。
     5. spring cloud consumer: 服务消费者。
+    6. netflix hystrix: 熔断。
+    7. zull: api网关。
