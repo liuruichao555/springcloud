@@ -2,6 +2,7 @@ package com.liuruichao.jwt.security;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.security.crypto.codec.Base64;
 import org.springframework.security.oauth2.provider.token.store.KeyStoreKeyFactory;
 import org.springframework.stereotype.Component;
 
@@ -26,10 +27,14 @@ public class SecretKeyProvider {
     @Value(value = "${jwt.key.alias}")
     private String jwtKeyAlias;
 
-    public String getSigningKey() {
+    /*public String getSigningKey() {
         PublicKey publicKey = getKeyPair().getPublic();
+        System.out.println("================================================");
+        System.out.println(new String(Base64.encode(publicKey.getEncoded())));
+        System.out.println("================================================");
         return new String(publicKey.getEncoded(), StandardCharsets.UTF_8);
-    }
+
+    }*/
 
     public KeyPair getKeyPair() {
         KeyStoreKeyFactory keyStoreKeyFactory = new KeyStoreKeyFactory(

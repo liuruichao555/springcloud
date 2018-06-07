@@ -16,6 +16,7 @@ import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
+import javax.annotation.Resource;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -30,9 +31,6 @@ import java.util.Arrays;
 @Configuration
 @EnableResourceServer
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
-    @Autowired
-    private CustomAccessTokenConverter customAccessTokenConverter;
-
     @Override
     public void configure(final HttpSecurity http) throws Exception {
         // @formatter:off
@@ -45,6 +43,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     @Override
     public void configure(final ResourceServerSecurityConfigurer config) {
         config.tokenServices(tokenServices());
+        config.resourceId("oauth2_application"); // TODO
     }
 
     @Bean
@@ -55,7 +54,6 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     @Bean
     public JwtAccessTokenConverter accessTokenConverter() {
         JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
-        converter.setAccessTokenConverter(customAccessTokenConverter);
 
         ClassPathResource resource = new ClassPathResource("/publicKey.pem");
         String publicKey = null;
