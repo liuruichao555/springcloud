@@ -21,12 +21,14 @@
         <module>boot-test</module>
         <module>boot2-test</module>
         <module>jpa</module>
+        <module>jwt</module>
+        <module>jwt-resource</module>
     </modules>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.2.RELEASE</version>
+        <version>1.5.13.RELEASE</version>
     </parent>
 
     <dependencies>
@@ -35,6 +37,11 @@
             <artifactId>lombok</artifactId>
             <version>1.16.14</version>
         </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.6</version>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
@@ -42,7 +49,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Dalston.RELEASE</version>
+                <version>Edgware.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
