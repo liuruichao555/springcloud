@@ -23,6 +23,7 @@
         <module>jpa</module>
         <module>jwt</module>
         <module>jwt-resource</module>
+        <module>ldap</module>
     </modules>
 
     <parent>
