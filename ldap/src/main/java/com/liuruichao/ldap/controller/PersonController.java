@@ -1,18 +1,14 @@
 package com.liuruichao.ldap.controller;
 
 import com.liuruichao.ldap.model.Person;
-import com.liuruichao.ldap.repository.PersonRepository;
 import com.liuruichao.ldap.service.PersonService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.naming.InvalidNameException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Consumer;
 
 /**
  * PersonController
@@ -25,14 +21,14 @@ public class PersonController {
     @Resource
     private PersonService personService;
 
-    @Resource
-    private PersonRepository personRepository;
+//    @GetMapping
+//    public ResponseEntity<String> getAllUser() throws InvalidNameException {
+//        return ResponseEntity.ok(personService.getPerson().toString());
+//    }
 
     @GetMapping
-    public ResponseEntity<List<Person>> getAllUser() {
-        List<Person> persons = new ArrayList<>();
-        personRepository.findAll().forEach(person -> persons.add(person));
-        return ResponseEntity.ok(persons);
+    public ResponseEntity<String> login() throws InvalidNameException {
+        return personService.login("lrc6", "liuruichao123");
     }
 
     @PostMapping

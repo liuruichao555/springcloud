@@ -25,7 +25,6 @@ public class LdapApplication {
 
     @Bean
     ContextSource contextSource() {
-
         LdapContextSource ldapContextSource = new LdapContextSource();
         ldapContextSource.setUrl("ldap://127.0.0.1:389");
         ldapContextSource.setUserDn("cn=Manager,dc=shuaiche,dc=com");
