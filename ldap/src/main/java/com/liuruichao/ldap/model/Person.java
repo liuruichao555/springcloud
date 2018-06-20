@@ -20,7 +20,7 @@ public class Person {
     @Id
     private Name id;
 
-    @DnAttribute(value = "uid")
+    @DnAttribute(value = "uid", index = 3)
     private String uid;
 
     @Attribute(name = "cn")
