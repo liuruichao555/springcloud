@@ -51,6 +51,7 @@ public class PersonService {
     }
 
     public Person addPerson(Person person) {
+        System.out.println("person: " + person);
         person = personRepository.save(person);
         return person;
     }
